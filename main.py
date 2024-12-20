@@ -22,14 +22,16 @@ with open('input.txt', 'r') as file:
                 flag_inc = False
             if curr > next:
                 flag_dec = False
-            if (abs(curr - next) < 0) or (abs(curr - next) > 3):
+            if (abs(curr - next) <= 0) or (abs(curr - next) >= 3):
                 flag_diff = False
             index = index + 1
 
         # Check flags
         if (flag_inc == False and flag_dec == False) or (flag_diff == False):
+            print(row, row_size, "FAIL")
             continue
         # Passed all checks, add report to count
         Total_safe_reports = Total_safe_reports + 1
+        print(row, row_size, "PASS")
 
     print("Total safe reports: ", Total_safe_reports)
